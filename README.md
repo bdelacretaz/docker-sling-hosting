@@ -1,6 +1,8 @@
 # docker-sling-hosting
 This is a prototype Docker hosting of Sling instances.
 
+* the swarm branch works with Docker 1.9 networking and the http://docs.docker.com/engine/userguide/networking/get-started-overlay/ setup *
+
 For now, it connects a number of Sling instances to a common MongoDB database, and automatically makes
 them available via a front-end HAProxy server. Logs are collected in a Graylog instance. All these services
 run in Docker containers.

@@ -1,7 +1,9 @@
 #!/bin/bash
 # announce this instance to etcd
 # TODO wait if etcd server not ready
-export IP=`/sbin/ip route|awk '/default/ { print $3 }'`
+
+# TODO there must be a better way to find this container's IP on its docker network
+export IP=`head -1 /etc/hosts | awk '{ print $1 }'`
 export URL="http://etcd:4001/v2/keys/sling/instances/`hostname`"
 echo "Announcing IP $IP and port $SLING_PORT to $URL"
 
